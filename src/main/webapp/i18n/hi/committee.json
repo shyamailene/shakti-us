@@ -1,0 +1,25 @@
+{
+    "shaktiusApp": {
+        "committee" : {
+            "home": {
+                "title": "Committees",
+                "createLabel": "नया Committee बनाएँ",
+                "createOrEditLabel": "Committee बनाएँ या संपादित करें",
+                "search": "Committee खोजें"
+            },
+            "created": "एक नया Committee [identifier: {{ param }}] तैयार है",
+            "updated": "एक Committee [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Committee [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Committee [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Committee"
+            },
+            "name": "Name",
+            "title": "Title",
+            "email": "Email",
+            "mobile": "Mobile"
+        }
+    }
+}
