@@ -15,7 +15,7 @@
     "websocket": false,
     "databaseType": "sql",
     "devDatabaseType": "mysql",
-    "prodDatabaseType": "mysql",
+    "prodDatabaseType": "postgres",
     "searchEngine": "elasticsearch",
     "messageBroker": false,
     "serviceDiscoveryType": false,
