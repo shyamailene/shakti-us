@@ -4,7 +4,6 @@ import com.codahale.metrics.annotation.Timed;
 import com.vemuri.shaktius.domain.Committee;
 
 import com.vemuri.shaktius.repository.CommitteeRepository;
-import com.vemuri.shaktius.repository.search.CommitteeSearchRepository;
 import com.vemuri.shaktius.web.rest.errors.BadRequestAlertException;
 import com.vemuri.shaktius.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -19,10 +18,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * REST controller for managing Committee.
@@ -37,11 +32,8 @@ public class CommitteeResource {
 
     private final CommitteeRepository committeeRepository;
 
-    private final CommitteeSearchRepository committeeSearchRepository;
-
-    public CommitteeResource(CommitteeRepository committeeRepository, CommitteeSearchRepository committeeSearchRepository) {
+    public CommitteeResource(CommitteeRepository committeeRepository) {
         this.committeeRepository = committeeRepository;
-        this.committeeSearchRepository = committeeSearchRepository;
     }
 
     /**
@@ -59,7 +51,6 @@ public class CommitteeResource {
             throw new BadRequestAlertException("A new committee cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Committee result = committeeRepository.save(committee);
-        committeeSearchRepository.save(result);
         return ResponseEntity.created(new URI("/api/committees/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
@@ -82,7 +73,6 @@ public class CommitteeResource {
             return createCommittee(committee);
         }
         Committee result = committeeRepository.save(committee);
-        committeeSearchRepository.save(result);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, committee.getId().toString()))
             .body(result);
@@ -125,24 +115,6 @@ public class CommitteeResource {
     public ResponseEntity<Void> deleteCommittee(@PathVariable Long id) {
         log.debug("REST request to delete Committee : {}", id);
         committeeRepository.delete(id);
-        committeeSearchRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
-
-    /**
-     * SEARCH  /_search/committees?query=:query : search for the committee corresponding
-     * to the query.
-     *
-     * @param query the query of the committee search
-     * @return the result of the search
-     */
-    @GetMapping("/_search/committees")
-    @Timed
-    public List<Committee> searchCommittees(@RequestParam String query) {
-        log.debug("REST request to search Committees for query {}", query);
-        return StreamSupport
-            .stream(committeeSearchRepository.search(queryStringQuery(query)).spliterator(), false)
-            .collect(Collectors.toList());
-    }
-
 }

@@ -22,7 +22,7 @@
             "fieldType": "String"
         }
     ],
-    "changelogDate": "20180209044613",
+    "changelogDate": "20180210094136",
     "dto": "no",
     "service": "no",
     "entityTableName": "committee",

@@ -5,7 +5,6 @@ import com.vemuri.shaktius.domain.User;
 import com.vemuri.shaktius.repository.AuthorityRepository;
 import com.vemuri.shaktius.config.Constants;
 import com.vemuri.shaktius.repository.UserRepository;
-import com.vemuri.shaktius.repository.search.UserSearchRepository;
 import com.vemuri.shaktius.security.AuthoritiesConstants;
 import com.vemuri.shaktius.security.SecurityUtils;
 import com.vemuri.shaktius.service.util.RandomUtil;
@@ -44,17 +43,14 @@ public class UserService {
 
     private final SocialService socialService;
 
-    private final UserSearchRepository userSearchRepository;
-
     private final AuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, UserSearchRepository userSearchRepository, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, SocialService socialService, AuthorityRepository authorityRepository, CacheManager cacheManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.socialService = socialService;
-        this.userSearchRepository = userSearchRepository;
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
     }
@@ -66,7 +62,6 @@ public class UserService {
                 // activate given user for the registration key.
                 user.setActivated(true);
                 user.setActivationKey(null);
-                userSearchRepository.save(user);
                 cacheManager.getCache(USERS_CACHE).evict(user.getLogin());
                 log.debug("Activated user: {}", user);
                 return user;
@@ -119,7 +114,6 @@ public class UserService {
         authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
-        userSearchRepository.save(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
     }
@@ -148,7 +142,6 @@ public class UserService {
         user.setResetDate(Instant.now());
         user.setActivated(true);
         userRepository.save(user);
-        userSearchRepository.save(user);
         log.debug("Created Information for User: {}", user);
         return user;
     }
@@ -171,7 +164,6 @@ public class UserService {
                 user.setEmail(email);
                 user.setLangKey(langKey);
                 user.setImageUrl(imageUrl);
-                userSearchRepository.save(user);
                 cacheManager.getCache(USERS_CACHE).evict(user.getLogin());
                 log.debug("Changed Information for User: {}", user);
             });
@@ -199,7 +191,6 @@ public class UserService {
                 userDTO.getAuthorities().stream()
                     .map(authorityRepository::findOne)
                     .forEach(managedAuthorities::add);
-                userSearchRepository.save(user);
                 cacheManager.getCache(USERS_CACHE).evict(user.getLogin());
                 log.debug("Changed Information for User: {}", user);
                 return user;
@@ -211,7 +202,6 @@ public class UserService {
         userRepository.findOneByLogin(login).ifPresent(user -> {
             socialService.deleteUserSocialConnection(user.getLogin());
             userRepository.delete(user);
-            userSearchRepository.delete(user);
             cacheManager.getCache(USERS_CACHE).evict(login);
             log.debug("Deleted User: {}", user);
         });
@@ -259,7 +249,6 @@ public class UserService {
         for (User user : users) {
             log.debug("Deleting not activated user {}", user.getLogin());
             userRepository.delete(user);
-            userSearchRepository.delete(user);
             cacheManager.getCache(USERS_CACHE).evict(user.getLogin());
         }
     }

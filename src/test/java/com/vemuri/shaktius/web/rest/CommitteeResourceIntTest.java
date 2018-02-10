@@ -4,7 +4,6 @@ import com.vemuri.shaktius.ShaktiusApp;
 
 import com.vemuri.shaktius.domain.Committee;
 import com.vemuri.shaktius.repository.CommitteeRepository;
-import com.vemuri.shaktius.repository.search.CommitteeSearchRepository;
 import com.vemuri.shaktius.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -55,9 +54,6 @@ public class CommitteeResourceIntTest {
     private CommitteeRepository committeeRepository;
 
     @Autowired
-    private CommitteeSearchRepository committeeSearchRepository;
-
-    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -76,7 +72,7 @@ public class CommitteeResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final CommitteeResource committeeResource = new CommitteeResource(committeeRepository, committeeSearchRepository);
+        final CommitteeResource committeeResource = new CommitteeResource(committeeRepository);
         this.restCommitteeMockMvc = MockMvcBuilders.standaloneSetup(committeeResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -101,7 +97,6 @@ public class CommitteeResourceIntTest {
 
     @Before
     public void initTest() {
-        committeeSearchRepository.deleteAll();
         committee = createEntity(em);
     }
 
@@ -124,10 +119,6 @@ public class CommitteeResourceIntTest {
         assertThat(testCommittee.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testCommittee.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testCommittee.getMobile()).isEqualTo(DEFAULT_MOBILE);
-
-        // Validate the Committee in Elasticsearch
-        Committee committeeEs = committeeSearchRepository.findOne(testCommittee.getId());
-        assertThat(committeeEs).isEqualToIgnoringGivenFields(testCommittee);
     }
 
     @Test
@@ -214,7 +205,6 @@ public class CommitteeResourceIntTest {
     public void updateCommittee() throws Exception {
         // Initialize the database
         committeeRepository.saveAndFlush(committee);
-        committeeSearchRepository.save(committee);
         int databaseSizeBeforeUpdate = committeeRepository.findAll().size();
 
         // Update the committee
@@ -240,10 +230,6 @@ public class CommitteeResourceIntTest {
         assertThat(testCommittee.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testCommittee.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testCommittee.getMobile()).isEqualTo(UPDATED_MOBILE);
-
-        // Validate the Committee in Elasticsearch
-        Committee committeeEs = committeeSearchRepository.findOne(testCommittee.getId());
-        assertThat(committeeEs).isEqualToIgnoringGivenFields(testCommittee);
     }
 
     @Test
@@ -269,7 +255,6 @@ public class CommitteeResourceIntTest {
     public void deleteCommittee() throws Exception {
         // Initialize the database
         committeeRepository.saveAndFlush(committee);
-        committeeSearchRepository.save(committee);
         int databaseSizeBeforeDelete = committeeRepository.findAll().size();
 
         // Get the committee
@@ -277,31 +262,9 @@ public class CommitteeResourceIntTest {
             .accept(TestUtil.APPLICATION_JSON_UTF8))
             .andExpect(status().isOk());
 
-        // Validate Elasticsearch is empty
-        boolean committeeExistsInEs = committeeSearchRepository.exists(committee.getId());
-        assertThat(committeeExistsInEs).isFalse();
-
         // Validate the database is empty
         List<Committee> committeeList = committeeRepository.findAll();
         assertThat(committeeList).hasSize(databaseSizeBeforeDelete - 1);
-    }
-
-    @Test
-    @Transactional
-    public void searchCommittee() throws Exception {
-        // Initialize the database
-        committeeRepository.saveAndFlush(committee);
-        committeeSearchRepository.save(committee);
-
-        // Search the committee
-        restCommitteeMockMvc.perform(get("/api/_search/committees?query=id:" + committee.getId()))
-            .andExpect(status().isOk())
-            .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-            .andExpect(jsonPath("$.[*].id").value(hasItem(committee.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-            .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
-            .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].mobile").value(hasItem(DEFAULT_MOBILE.toString())));
     }
 
     @Test

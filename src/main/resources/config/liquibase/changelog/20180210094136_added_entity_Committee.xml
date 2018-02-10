@@ -16,7 +16,7 @@
     <!--
         Added the entity Committee.
     -->
-    <changeSet id="20180209044613-1" author="jhipster">
+    <changeSet id="20180210094136-1" author="jhipster">
         <createTable tableName="committee">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

@@ -40,10 +40,6 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.NoDefaultJCacheRegionFactory
-    data:
-        elasticsearch:
-            cluster-name:
-            cluster-nodes: localhost:9300
     mail:
         host: localhost
         port: 25
@@ -97,7 +93,7 @@ jhipster:
     security:
         authentication:
             jwt:
-                secret: 967ca7759b409042d4c4fe02f72589bcaeada1b7
+                secret: ef7e35fea10e3e977325270c8cb1f1107ea6790e
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000

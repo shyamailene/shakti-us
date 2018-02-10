@@ -6,7 +6,6 @@ import com.vemuri.shaktius.domain.User;
 import com.vemuri.shaktius.repository.AuthorityRepository;
 import com.vemuri.shaktius.repository.UserRepository;
 import com.vemuri.shaktius.security.AuthoritiesConstants;
-import com.vemuri.shaktius.repository.search.UserSearchRepository;
 import com.vemuri.shaktius.service.MailService;
 
 import org.junit.Before;
@@ -41,9 +40,6 @@ public class SocialServiceIntTest {
 
     @Autowired
     private UserRepository userRepository;
-    @Autowired
-    private UserSearchRepository userSearchRepository;
-
 
     @Mock
     private MailService mockMailService;
@@ -64,7 +60,7 @@ public class SocialServiceIntTest {
         when(mockUsersConnectionRepository.createConnectionRepository(anyString())).thenReturn(mockConnectionRepository);
 
         socialService = new SocialService(mockUsersConnectionRepository, authorityRepository,
-                passwordEncoder, userRepository, mockMailService, userSearchRepository);
+                passwordEncoder, userRepository, mockMailService);
     }
 
     @Test
