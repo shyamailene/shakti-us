@@ -2,7 +2,7 @@
     "shaktiusApp": {
         "committee" : {
             "home": {
-                "title": "Committees",
+                "title": "Committee",
                 "createLabel": "Create a new Committee",
                 "createOrEditLabel": "Create or edit a Committee",
                 "search": "Search for Committee"

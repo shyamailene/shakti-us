@@ -31,7 +31,7 @@
         </div>
     </div>
     <br/>
-    <div class="table-responsive" ng-switch="vm.isAuthenticated()">
+    <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
@@ -51,7 +51,7 @@
                     <td>{{committee.email}}</td>
                     <td>{{committee.mobile}}</td>
                     <td class="text-right">
-                        <div class="btn-group flex-btn-group-container" ng-switch-when="true">
+                        <div class="btn-group flex-btn-group-container">
                             <button type="submit"
                                     ui-sref="committee-detail({id:committee.id})"
                                     class="btn btn-info btn-sm">

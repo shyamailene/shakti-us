@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/committee',
             data: {
-                //authorities: ['ROLE_USER'],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.committee.home.title'
             },
             views: {
