@@ -1,0 +1,24 @@
+{
+    "shaktiusApp": {
+        "activities" : {
+            "home": {
+                "title": "Activities",
+                "createLabel": "Create a new Activities",
+                "createOrEditLabel": "Create or edit a Activities"
+            },
+            "created": "A new Activities is created with identifier {{ param }}",
+            "updated": "A Activities is updated with identifier {{ param }}",
+            "deleted": "A Activities is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Activities {{ id }}?"
+            },
+            "detail": {
+                "title": "Activities"
+            },
+            "title": "Title",
+            "description": "Description",
+            "location": "Location",
+            "date": "Date"
+        }
+    }
+}

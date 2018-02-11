@@ -8,6 +8,7 @@
             "entities": {
                 "main": "एंटिटीज़",
                 "committee": "Committee",
+                "activities": "Activities",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
