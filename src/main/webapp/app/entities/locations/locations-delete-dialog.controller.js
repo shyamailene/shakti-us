@@ -3,14 +3,14 @@
 
     angular
         .module('shaktiusApp')
-        .controller('ActivitiesDeleteController',ActivitiesDeleteController);
+        .controller('LocationsDeleteController',LocationsDeleteController);
 
-    ActivitiesDeleteController.$inject = ['$uibModalInstance', 'entity', 'Activities'];
+    LocationsDeleteController.$inject = ['$uibModalInstance', 'entity', 'Locations'];
 
-    function ActivitiesDeleteController($uibModalInstance, entity, Activities) {
+    function LocationsDeleteController($uibModalInstance, entity, Locations) {
         var vm = this;
 
-        vm.activities = entity;
+        vm.locations = entity;
         vm.clear = clear;
         vm.confirmDelete = confirmDelete;
 
@@ -19,7 +19,7 @@
         }
 
         function confirmDelete (id) {
-            Activities.delete({id: id},
+            Locations.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

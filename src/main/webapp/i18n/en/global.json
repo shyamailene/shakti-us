@@ -9,6 +9,7 @@
                 "main": "Entities",
                 "committee": "Committee",
                 "activities": "Activities",
+                "locations": "Locations",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "aboutus":{

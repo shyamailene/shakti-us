@@ -7,6 +7,7 @@
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180210094136_added_entity_Committee.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180211065436_added_entity_Activities.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180212052152_added_entity_Locations.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

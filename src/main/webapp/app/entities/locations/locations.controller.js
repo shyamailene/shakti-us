@@ -3,11 +3,11 @@
 
     angular
         .module('shaktiusApp')
-        .controller('ActivitiesController', ActivitiesController);
+        .controller('LocationsController', LocationsController);
 
-    ActivitiesController.$inject = ['$state', 'Activities', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    LocationsController.$inject = ['$state', 'Locations', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function ActivitiesController($state, Activities, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function LocationsController($state, Locations, ParseLinks, AlertService, paginationConstants, pagingParams) {
 
         var vm = this;
 
@@ -20,7 +20,7 @@
         loadAll();
 
         function loadAll () {
-            Activities.query({
+            Locations.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
@@ -36,7 +36,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.activities = data;
+                vm.locations = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

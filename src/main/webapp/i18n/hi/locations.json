@@ -1,0 +1,23 @@
+{
+    "shaktiusApp": {
+        "locations" : {
+            "home": {
+                "title": "Locations",
+                "createLabel": "नया Locations बनाएँ",
+                "createOrEditLabel": "Locations बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Locations [identifier: {{ param }}] तैयार है",
+            "updated": "एक Locations [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Locations [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Locations [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Locations"
+            },
+            "country": "Country",
+            "state": "State",
+            "city": "City"
+        }
+    }
+}

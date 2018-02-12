@@ -1,0 +1,31 @@
+
+<div>
+    <h2><span data-translate="shaktiusApp.locations.detail.title">Locations</span> {{vm.locations.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shaktiusApp.locations.country">Country</span></dt>
+        <dd>
+            <span>{{vm.locations.country}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.locations.state">State</span></dt>
+        <dd>
+            <span>{{vm.locations.state}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.locations.city">City</span></dt>
+        <dd>
+            <span>{{vm.locations.city}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="locations-detail.edit({id:vm.locations.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
