@@ -38,6 +38,7 @@ public class CacheConfiguration {
     public JCacheManagerCustomizer cacheManagerCustomizer() {
         return cm -> {
             cm.createCache("users", jcacheConfiguration);
+            cm.createCache("appconfig", jcacheConfiguration);
             cm.createCache(com.vemuri.shaktius.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.vemuri.shaktius.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.vemuri.shaktius.domain.User.class.getName() + ".authorities", jcacheConfiguration);
