@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "relatedto",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180217083254",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "contactus",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

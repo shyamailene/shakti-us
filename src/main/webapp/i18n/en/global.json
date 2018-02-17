@@ -12,6 +12,8 @@
                 "locations": "Locations",
                 "events": "Events",
                 "seminars": "Seminars",
+                "contactus": "Contactus",
+                "appconfig": "Appconfig",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "aboutus":{
@@ -100,7 +102,8 @@
             "edit": "Edit",
             "open": "Open",
             "save": "Save",
-            "view": "View"
+            "view": "View",
+            "send": "Send"
         },
         "detail": {
             "field": "Field",

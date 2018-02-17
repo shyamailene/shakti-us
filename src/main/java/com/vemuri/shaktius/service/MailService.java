@@ -1,10 +1,10 @@
 package com.vemuri.shaktius.service;
 
+import com.vemuri.shaktius.domain.Contactus;
 import com.vemuri.shaktius.domain.User;
-
 import io.github.jhipster.config.JHipsterProperties;
-
 import org.apache.commons.lang3.CharEncoding;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -14,7 +14,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.mail.internet.MimeMessage;
 import java.util.Locale;
@@ -30,6 +29,8 @@ public class MailService {
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
     private static final String USER = "user";
+
+    private static final String CONTACTUS = "contactus";
 
     private static final String BASE_URL = "baseUrl";
 
@@ -115,5 +116,23 @@ public class MailService {
         String content = templateEngine.process("socialRegistrationValidationEmail", context);
         String subject = messageSource.getMessage("email.social.registration.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendEmail(User user,Contactus contactus,String mailid) {
+        log.debug("Sending email to '{}'");
+        sendEmail(user,"contactus", "email.contactus.title", mailid, contactus);
+    }
+
+    @Async
+    public void sendEmail(User user, String templateName, String titleKey, String mailid, Contactus contactus) {
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable(USER, user);
+        context.setVariable(CONTACTUS, contactus);
+        String content = templateEngine.process(templateName, context);
+        String subject = messageSource.getMessage(titleKey, null, locale);
+        sendEmail(mailid, subject, content, false, true);
+
     }
 }

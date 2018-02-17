@@ -10,6 +10,8 @@
     <include file="config/liquibase/changelog/20180212052152_added_entity_Locations.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180217053732_added_entity_Events.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180217072736_added_entity_Seminars.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217083254_added_entity_Contactus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217141304_added_entity_Appconfig.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
