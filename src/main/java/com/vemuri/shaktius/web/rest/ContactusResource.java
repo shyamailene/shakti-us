@@ -4,11 +4,8 @@ import com.codahale.metrics.annotation.Timed;
 import com.vemuri.shaktius.config.AppConstants;
 import com.vemuri.shaktius.domain.Appconfig;
 import com.vemuri.shaktius.domain.Contactus;
-
-import com.vemuri.shaktius.domain.User;
 import com.vemuri.shaktius.repository.ContactusRepository;
 import com.vemuri.shaktius.repository.UserRepository;
-import com.vemuri.shaktius.security.SecurityUtils;
 import com.vemuri.shaktius.service.AppconfigService;
 import com.vemuri.shaktius.service.MailService;
 import com.vemuri.shaktius.web.rest.errors.BadRequestAlertException;
@@ -27,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -72,12 +68,10 @@ public class ContactusResource {
             throw new BadRequestAlertException("A new contactus cannot already have an ID", ENTITY_NAME, "idexists");
         }
         Contactus result = contactusRepository.save(contactus);
-        Optional<String> userid= SecurityUtils.getCurrentUserLogin();
-        User user=userRepository.findOneByLogin(userid.get()).get();
         Optional<Appconfig> appConfig=appconfigService.findByKey(AppConstants.ADMIN_EMAIL);
         if(appConfig!=null) {
             String admin_mail_id = appConfig.get().getValue();
-            mailService.sendEmail(user, result, admin_mail_id);
+            mailService.sendEmail(null, result, admin_mail_id);
         }
         return ResponseEntity.created(new URI("/api/contactuses/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))

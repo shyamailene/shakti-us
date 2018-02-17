@@ -126,7 +126,9 @@ public class MailService {
 
     @Async
     public void sendEmail(User user, String templateName, String titleKey, String mailid, Contactus contactus) {
-        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Locale locale =Locale.forLanguageTag("en");
+        if(user!=null)
+            locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
         context.setVariable(USER, user);
         context.setVariable(CONTACTUS, contactus);
