@@ -45,6 +45,7 @@ public class CacheConfiguration {
             cm.createCache(com.vemuri.shaktius.domain.Committee.class.getName(), jcacheConfiguration);
             cm.createCache(com.vemuri.shaktius.domain.Activities.class.getName(), jcacheConfiguration);
             cm.createCache(com.vemuri.shaktius.domain.Locations.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vemuri.shaktius.domain.Events.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -5,6 +5,6 @@
         .module('shaktiusApp')
         .constant('VERSION', "0.0.2-SNAPSHOT")
         .constant('DEBUG_INFO_ENABLED', false)
-        .constant('BUILD_TIMESTAMP', 1518430889372)
+        .constant('BUILD_TIMESTAMP', 1518797387758)
 ;
 })();
