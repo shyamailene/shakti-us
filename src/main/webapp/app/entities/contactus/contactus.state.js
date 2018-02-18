@@ -128,6 +128,7 @@
                                 mobile: null,
                                 relatedto: null,
                                 content: null,
+                                name: null,
                                 id: null
                             };
                         }

@@ -22,6 +22,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -46,11 +47,11 @@ public class ContactusResource {
     @Autowired
     private AppconfigService appconfigService;
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public ContactusResource(ContactusRepository contactusRepository,UserRepository userRepository) {
+    public ContactusResource(ContactusRepository contactusRepository) {
         this.contactusRepository = contactusRepository;
-        this.userRepository=userRepository;
     }
 
     /**
@@ -62,7 +63,7 @@ public class ContactusResource {
      */
     @PostMapping("/contactuses")
     @Timed
-    public ResponseEntity<Contactus> createContactus(@RequestBody Contactus contactus) throws URISyntaxException {
+    public ResponseEntity<Contactus> createContactus(@Valid @RequestBody Contactus contactus) throws URISyntaxException {
         log.debug("REST request to save Contactus : {}", contactus);
         if (contactus.getId() != null) {
             throw new BadRequestAlertException("A new contactus cannot already have an ID", ENTITY_NAME, "idexists");
@@ -89,7 +90,7 @@ public class ContactusResource {
      */
     @PutMapping("/contactuses")
     @Timed
-    public ResponseEntity<Contactus> updateContactus(@RequestBody Contactus contactus) throws URISyntaxException {
+    public ResponseEntity<Contactus> updateContactus(@Valid @RequestBody Contactus contactus) throws URISyntaxException {
         log.debug("REST request to update Contactus : {}", contactus);
         if (contactus.getId() == null) {
             return createContactus(contactus);

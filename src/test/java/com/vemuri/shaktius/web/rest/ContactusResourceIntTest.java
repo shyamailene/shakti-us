@@ -4,7 +4,6 @@ import com.vemuri.shaktius.ShaktiusApp;
 
 import com.vemuri.shaktius.domain.Contactus;
 import com.vemuri.shaktius.repository.ContactusRepository;
-import com.vemuri.shaktius.repository.UserRepository;
 import com.vemuri.shaktius.web.rest.errors.ExceptionTranslator;
 
 import org.junit.Before;
@@ -51,6 +50,9 @@ public class ContactusResourceIntTest {
     private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
     private static final String UPDATED_CONTENT = "BBBBBBBBBB";
 
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
+
     @Autowired
     private ContactusRepository contactusRepository;
 
@@ -70,13 +72,10 @@ public class ContactusResourceIntTest {
 
     private Contactus contactus;
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ContactusResource contactusResource = new ContactusResource(contactusRepository,userRepository);
+        final ContactusResource contactusResource = new ContactusResource(contactusRepository);
         this.restContactusMockMvc = MockMvcBuilders.standaloneSetup(contactusResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -95,7 +94,8 @@ public class ContactusResourceIntTest {
             .email(DEFAULT_EMAIL)
             .mobile(DEFAULT_MOBILE)
             .relatedto(DEFAULT_RELATEDTO)
-            .content(DEFAULT_CONTENT);
+            .content(DEFAULT_CONTENT)
+            .name(DEFAULT_NAME);
         return contactus;
     }
 
@@ -123,6 +123,7 @@ public class ContactusResourceIntTest {
         assertThat(testContactus.getMobile()).isEqualTo(DEFAULT_MOBILE);
         assertThat(testContactus.getRelatedto()).isEqualTo(DEFAULT_RELATEDTO);
         assertThat(testContactus.getContent()).isEqualTo(DEFAULT_CONTENT);
+        assertThat(testContactus.getName()).isEqualTo(DEFAULT_NAME);
     }
 
     @Test
@@ -146,6 +147,24 @@ public class ContactusResourceIntTest {
 
     @Test
     @Transactional
+    public void checkNameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = contactusRepository.findAll().size();
+        // set the field null
+        contactus.setName(null);
+
+        // Create the Contactus, which fails.
+
+        restContactusMockMvc.perform(post("/api/contactuses")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(contactus)))
+            .andExpect(status().isBadRequest());
+
+        List<Contactus> contactusList = contactusRepository.findAll();
+        assertThat(contactusList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllContactuses() throws Exception {
         // Initialize the database
         contactusRepository.saveAndFlush(contactus);
@@ -158,7 +177,8 @@ public class ContactusResourceIntTest {
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
             .andExpect(jsonPath("$.[*].mobile").value(hasItem(DEFAULT_MOBILE.toString())))
             .andExpect(jsonPath("$.[*].relatedto").value(hasItem(DEFAULT_RELATEDTO.toString())))
-            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT.toString())));
+            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT.toString())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
 
     @Test
@@ -175,7 +195,8 @@ public class ContactusResourceIntTest {
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
             .andExpect(jsonPath("$.mobile").value(DEFAULT_MOBILE.toString()))
             .andExpect(jsonPath("$.relatedto").value(DEFAULT_RELATEDTO.toString()))
-            .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT.toString()));
+            .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
     }
 
     @Test
@@ -201,7 +222,8 @@ public class ContactusResourceIntTest {
             .email(UPDATED_EMAIL)
             .mobile(UPDATED_MOBILE)
             .relatedto(UPDATED_RELATEDTO)
-            .content(UPDATED_CONTENT);
+            .content(UPDATED_CONTENT)
+            .name(UPDATED_NAME);
 
         restContactusMockMvc.perform(put("/api/contactuses")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -216,6 +238,7 @@ public class ContactusResourceIntTest {
         assertThat(testContactus.getMobile()).isEqualTo(UPDATED_MOBILE);
         assertThat(testContactus.getRelatedto()).isEqualTo(UPDATED_RELATEDTO);
         assertThat(testContactus.getContent()).isEqualTo(UPDATED_CONTENT);
+        assertThat(testContactus.getName()).isEqualTo(UPDATED_NAME);
     }
 
     @Test

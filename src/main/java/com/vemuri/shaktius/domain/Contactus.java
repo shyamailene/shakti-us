@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -34,6 +35,10 @@ public class Contactus implements Serializable {
 
     @Column(name = "content")
     private String content;
+
+    @NotNull
+    @Column(name = "name", nullable = false)
+    private String name;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -95,6 +100,19 @@ public class Contactus implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Contactus name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -125,6 +143,7 @@ public class Contactus implements Serializable {
             ", mobile='" + getMobile() + "'" +
             ", relatedto='" + getRelatedto() + "'" +
             ", content='" + getContent() + "'" +
+            ", name='" + getName() + "'" +
             "}";
     }
 }

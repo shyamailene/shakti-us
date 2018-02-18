@@ -19,7 +19,8 @@
             "email": "Email",
             "mobile": "Mobile",
             "relatedto": "Relatedto",
-            "content": "Content"
+            "content": "Content",
+            "name": "Name"
         }
     }
 }
