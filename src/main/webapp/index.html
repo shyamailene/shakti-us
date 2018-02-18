@@ -20,6 +20,7 @@
     <!-- endbuild -->
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="manifest" href="manifest.webapp" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body ng-app="shaktiusApp" ng-strict-di>
     <!--[if lt IE 9]>
@@ -82,6 +83,7 @@
     <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script src="bower_components/angular-re-captcha/angular-re-captcha.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
@@ -111,6 +113,14 @@
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/usersignup/usersignup-dialog.controller.js"></script>
+    <script src="app/menu/usersignup/usersignup-dialog.controller.js"></script>
+    <script src="app/entities/usersignup/usersignup-detail.controller.js"></script>
+    <script src="app/entities/usersignup/usersignup-delete-dialog.controller.js"></script>
+    <script src="app/entities/usersignup/usersignup.state.js"></script>
+    <script src="app/menu/usersignup/usersignup.state.js"></script>
+    <script src="app/entities/usersignup/usersignup.service.js"></script>
+    <script src="app/entities/usersignup/usersignup.controller.js"></script>
     <script src="app/entities/seminars/seminars-dialog.controller.js"></script>
     <script src="app/entities/seminars/seminars-detail.controller.js"></script>
     <script src="app/entities/seminars/seminars-delete-dialog.controller.js"></script>

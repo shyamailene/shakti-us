@@ -5,7 +5,6 @@ import com.vemuri.shaktius.config.AppConstants;
 import com.vemuri.shaktius.domain.Appconfig;
 import com.vemuri.shaktius.domain.Contactus;
 import com.vemuri.shaktius.repository.ContactusRepository;
-import com.vemuri.shaktius.repository.UserRepository;
 import com.vemuri.shaktius.service.AppconfigService;
 import com.vemuri.shaktius.service.MailService;
 import com.vemuri.shaktius.web.rest.errors.BadRequestAlertException;
@@ -46,9 +45,6 @@ public class ContactusResource {
 
     @Autowired
     private AppconfigService appconfigService;
-
-    @Autowired
-    private UserRepository userRepository;
 
     public ContactusResource(ContactusRepository contactusRepository) {
         this.contactusRepository = contactusRepository;

@@ -66,10 +66,16 @@
                         <span data-translate="global.menu.entities.seminars">Seminars</span>
                     </a>
                 </li>
-                <li ng-class="{active: vm.$state.includes('entity')}">
+                <li ui-sref-active="active">
                     <a ui-sref="contactusmenu" ng-click="vm.collapseNavbar()">
                         <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
                         <span data-translate="global.menu.entities.contactus">Contact Us</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="usersignupmenu" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-asterisk"></span>&nbsp;
+                        <span data-translate="global.menu.entities.usersignup">Usersignup</span>
                     </a>
                 </li>
 

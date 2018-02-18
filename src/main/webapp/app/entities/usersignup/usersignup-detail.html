@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="shaktiusApp.usersignup.detail.title">Usersignup</span> {{vm.usersignup.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shaktiusApp.usersignup.name">Name</span></dt>
+        <dd>
+            <span>{{vm.usersignup.name}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.usersignup.phonenumber">Phonenumber</span></dt>
+        <dd>
+            <span>{{vm.usersignup.phonenumber}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.usersignup.email">Email</span></dt>
+        <dd>
+            <span>{{vm.usersignup.email}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.usersignup.notes">Notes</span></dt>
+        <dd>
+            <span>{{vm.usersignup.notes}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="usersignup-detail.edit({id:vm.usersignup.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

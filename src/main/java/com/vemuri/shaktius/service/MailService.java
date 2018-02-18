@@ -2,6 +2,7 @@ package com.vemuri.shaktius.service;
 
 import com.vemuri.shaktius.domain.Contactus;
 import com.vemuri.shaktius.domain.User;
+import com.vemuri.shaktius.domain.Usersignup;
 import io.github.jhipster.config.JHipsterProperties;
 import org.apache.commons.lang3.CharEncoding;
 import org.apache.commons.lang3.StringUtils;
@@ -31,6 +32,8 @@ public class MailService {
     private static final String USER = "user";
 
     private static final String CONTACTUS = "contactus";
+
+    private static final String USERSIGNUP = "usersignup";
 
     private static final String BASE_URL = "baseUrl";
 
@@ -132,6 +135,27 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable(USER, user);
         context.setVariable(CONTACTUS, contactus);
+        String content = templateEngine.process(templateName, context);
+        String subject = messageSource.getMessage(titleKey, null, locale);
+        sendEmail(mailid, subject, content, false, true);
+
+    }
+
+    @Async
+    public void sendSignUpEmail(User user, Usersignup usersignup, String mailid) {
+        log.debug("Sending email to '{user signup}'");
+        sendEmail(user,"usersignup", "email.usersignup.title", mailid, usersignup);
+        sendEmail(user,"usersignup", "email.usersignup.title", usersignup.getEmail(), usersignup);
+    }
+
+    @Async
+    public void sendEmail(User user, String templateName, String titleKey, String mailid, Usersignup usersignup) {
+        Locale locale =Locale.forLanguageTag("en");
+        if(user!=null)
+            locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable(USER, user);
+        context.setVariable(USERSIGNUP, usersignup);
         String content = templateEngine.process(templateName, context);
         String subject = messageSource.getMessage(titleKey, null, locale);
         sendEmail(mailid, subject, content, false, true);
