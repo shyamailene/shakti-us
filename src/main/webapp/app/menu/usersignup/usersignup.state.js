@@ -5,9 +5,9 @@
         .module('shaktiusApp')
         .config(stateConfig);
 
-    stateConfig.$inject = ['$stateProvider','reCAPTCHAProvider'];
+    stateConfig.$inject = ['$stateProvider'];
 
-    function stateConfig($stateProvider, reCAPTCHAProvider) {
+    function stateConfig($stateProvider) {
         $stateProvider
         .state('usersignupmenu', {
             parent: 'entity',
@@ -111,11 +111,6 @@
                     }]
                 }
             });
-        reCAPTCHAProvider.setPublicKey('6LfyK-0SAAAAAAl6V9jBGQgPxemtrpIZ-SPDPd-n');
-        // optional
-        reCAPTCHAProvider.setOptions({
-            theme: 'clean'
-        });
     }
 
 })();
