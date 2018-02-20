@@ -2,7 +2,7 @@
 <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
-        <h4 class="modal-title" id="myUsersignupLabel" data-translate="shaktiusApp.usersignup.home.createOrEditLabel">User Sign Up</h4>
+        <h4 class="modal-title" id="myUsersignupLabel" data-translate="shaktiusApp.usersignup.home.createMenuLabel">User Sign Up</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
@@ -33,7 +33,7 @@
         <div class="form-group">
             <label class="control-label" data-translate="shaktiusApp.usersignup.email" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
-                   ng-model="vm.usersignup.email"
+                   ng-model="vm.usersignup.email" placeholder="Email id"
                    required/>
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
             <label class="control-label" data-translate="shaktiusApp.usersignup.notes" for="field_notes">Notes</label>
-            <input type="text" class="form-control" name="notes" id="field_notes"
+            <textarea type="text" class="form-control" name="notes" id="field_notes"
                    ng-model="vm.usersignup.notes"
             />
         </div>

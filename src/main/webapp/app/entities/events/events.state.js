@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/events?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.events.home.title'
             },
             views: {

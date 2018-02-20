@@ -4,6 +4,7 @@
             "home": {
                 "title": "Usersignups",
                 "createLabel": "Create a new Usersignup",
+                "createMenuLabel": "New User Signup",
                 "createOrEditLabel": "Create or edit a Usersignup"
             },
             "created": "A new Usersignup is created with identifier {{ param }}",
