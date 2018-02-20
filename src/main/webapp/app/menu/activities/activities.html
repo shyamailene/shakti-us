@@ -32,7 +32,17 @@
                     <td>{{activities.title}}</td>
                     <td>{{activities.description}}</td>
                     <td>{{activities.location}}</td>
-                        <td>{{activities.date | date:'mediumDate'}}</td>
+                    <td>{{activities.date | date:'mediumDate'}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="activities-detail({id:activities.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                        </div>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container" ng-switch-when="true">
                             <button type="submit"

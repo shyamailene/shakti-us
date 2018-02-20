@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/locations?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.locations.home.title'
             },
             views: {
@@ -97,7 +97,7 @@
             parent: 'locations',
             url: '/locations/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.locations.detail.title'
             },
             views: {

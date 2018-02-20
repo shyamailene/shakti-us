@@ -28,7 +28,7 @@
         <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
     </button>
 
-    <button type="button" ui-sref="seminars-detail.edit({id:vm.seminars.id})" class="btn btn-primary">
+    <button type="button" ui-sref="seminars-detail.edit({id:vm.seminars.id})" class="btn btn-primary" ng-switch-when="vm.isAuthenticated()">
         <span class="glyphicon glyphicon-pencil"></span>
         <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
     </button>

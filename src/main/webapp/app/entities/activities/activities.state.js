@@ -97,7 +97,7 @@
             parent: 'activities',
             url: '/activities/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.activities.detail.title'
             },
             views: {

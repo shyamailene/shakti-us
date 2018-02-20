@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/seminars?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.seminars.home.title'
             },
             views: {
@@ -97,7 +97,7 @@
             parent: 'seminars',
             url: '/seminars/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.seminars.detail.title'
             },
             views: {
