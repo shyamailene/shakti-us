@@ -97,7 +97,7 @@
             parent: 'events',
             url: '/events/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                //authorities: ['ROLE_USER'],
                 pageTitle: 'shaktiusApp.events.detail.title'
             },
             views: {
