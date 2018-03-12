@@ -1,0 +1,86 @@
+<div>
+    <h2 data-translate="shaktiusApp.signup.home.title">Signups</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="signup.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="shaktiusApp.signup.home.createLabel">
+                        Create new Signup
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="firstName"><span data-translate="shaktiusApp.signup.firstName">First Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lastName"><span data-translate="shaktiusApp.signup.lastName">Last Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span data-translate="shaktiusApp.signup.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone"><span data-translate="shaktiusApp.signup.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="line1"><span data-translate="shaktiusApp.signup.line1">Line 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="line2"><span data-translate="shaktiusApp.signup.line2">Line 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="city"><span data-translate="shaktiusApp.signup.city">City</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="state"><span data-translate="shaktiusApp.signup.state">State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="country"><span data-translate="shaktiusApp.signup.country">Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="zipcode"><span data-translate="shaktiusApp.signup.zipcode">Zipcode</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentFName"><span data-translate="shaktiusApp.signup.parentFName">Parent F Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentLName"><span data-translate="shaktiusApp.signup.parentLName">Parent L Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentEmail"><span data-translate="shaktiusApp.signup.parentEmail">Parent Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentPhone"><span data-translate="shaktiusApp.signup.parentPhone">Parent Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="signup in vm.signups track by signup.id">
+                    <td><a ui-sref="signup-detail({id:signup.id})">{{signup.id}}</a></td>
+                    <td>{{signup.firstName}}</td>
+                    <td>{{signup.lastName}}</td>
+                    <td>{{signup.email}}</td>
+                    <td>{{signup.phone}}</td>
+                    <td>{{signup.line1}}</td>
+                    <td>{{signup.line2}}</td>
+                    <td>{{signup.city}}</td>
+                    <td>{{signup.state}}</td>
+                    <td>{{signup.country}}</td>
+                    <td>{{signup.zipcode}}</td>
+                    <td>{{signup.parentFName}}</td>
+                    <td>{{signup.parentLName}}</td>
+                    <td>{{signup.parentEmail}}</td>
+                    <td>{{signup.parentPhone}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="signup-detail({id:signup.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="signup.edit({id:signup.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="signup.delete({id:signup.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" items-per-page="vm.itemsPerPage" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -15,6 +15,7 @@
                 "contactus": "Contactus",
                 "appconfig": "Appconfig",
                 "usersignup": "Usersignup",
+                "signup": "Signup",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "aboutus":{

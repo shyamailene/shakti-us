@@ -1,0 +1,110 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="mySignupLabel" data-translate="shaktiusApp.signup.home.createOrEditLabel">Create or edit a Signup</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.signup.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.signup.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.firstName" for="field_firstName">First Name</label>
+            <input type="text" class="form-control" name="firstName" id="field_firstName"
+                    ng-model="vm.signup.firstName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.lastName" for="field_lastName">Last Name</label>
+            <input type="text" class="form-control" name="lastName" id="field_lastName"
+                    ng-model="vm.signup.lastName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.signup.email"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.signup.phone"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.line1" for="field_line1">Line 1</label>
+            <input type="text" class="form-control" name="line1" id="field_line1"
+                    ng-model="vm.signup.line1"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.line2" for="field_line2">Line 2</label>
+            <input type="text" class="form-control" name="line2" id="field_line2"
+                    ng-model="vm.signup.line2"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                    ng-model="vm.signup.city"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.state" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                    ng-model="vm.signup.state"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.country" for="field_country">Country</label>
+            <input type="text" class="form-control" name="country" id="field_country"
+                    ng-model="vm.signup.country"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.zipcode" for="field_zipcode">Zipcode</label>
+            <input type="text" class="form-control" name="zipcode" id="field_zipcode"
+                    ng-model="vm.signup.zipcode"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.parentFName" for="field_parentFName">Parent F Name</label>
+            <input type="text" class="form-control" name="parentFName" id="field_parentFName"
+                    ng-model="vm.signup.parentFName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.parentLName" for="field_parentLName">Parent L Name</label>
+            <input type="text" class="form-control" name="parentLName" id="field_parentLName"
+                    ng-model="vm.signup.parentLName"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.parentEmail" for="field_parentEmail">Parent Email</label>
+            <input type="text" class="form-control" name="parentEmail" id="field_parentEmail"
+                    ng-model="vm.signup.parentEmail"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="shaktiusApp.signup.parentPhone" for="field_parentPhone">Parent Phone</label>
+            <input type="text" class="form-control" name="parentPhone" id="field_parentPhone"
+                    ng-model="vm.signup.parentPhone"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

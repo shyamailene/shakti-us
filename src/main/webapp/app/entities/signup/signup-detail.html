@@ -1,0 +1,75 @@
+
+<div>
+    <h2><span data-translate="shaktiusApp.signup.detail.title">Signup</span> {{vm.signup.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shaktiusApp.signup.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.signup.firstName}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.signup.lastName}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.email">Email</span></dt>
+        <dd>
+            <span>{{vm.signup.email}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.signup.phone}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.line1">Line 1</span></dt>
+        <dd>
+            <span>{{vm.signup.line1}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.line2">Line 2</span></dt>
+        <dd>
+            <span>{{vm.signup.line2}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.city">City</span></dt>
+        <dd>
+            <span>{{vm.signup.city}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.state">State</span></dt>
+        <dd>
+            <span>{{vm.signup.state}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.country">Country</span></dt>
+        <dd>
+            <span>{{vm.signup.country}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.zipcode">Zipcode</span></dt>
+        <dd>
+            <span>{{vm.signup.zipcode}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.parentFName">Parent F Name</span></dt>
+        <dd>
+            <span>{{vm.signup.parentFName}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.parentLName">Parent L Name</span></dt>
+        <dd>
+            <span>{{vm.signup.parentLName}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.parentEmail">Parent Email</span></dt>
+        <dd>
+            <span>{{vm.signup.parentEmail}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.signup.parentPhone">Parent Phone</span></dt>
+        <dd>
+            <span>{{vm.signup.parentPhone}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="signup-detail.edit({id:vm.signup.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
