@@ -1,0 +1,23 @@
+{
+    "shaktiusApp": {
+        "locations" : {
+            "home": {
+                "title": "Locations",
+                "createLabel": "Create a new Locations",
+                "createOrEditLabel": "Create or edit a Locations"
+            },
+            "created": "A new Locations is created with identifier {{ param }}",
+            "updated": "A Locations is updated with identifier {{ param }}",
+            "deleted": "A Locations is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Locations {{ id }}?"
+            },
+            "detail": {
+                "title": "Locations"
+            },
+            "country": "Country",
+            "state": "State",
+            "city": "City"
+        }
+    }
+}

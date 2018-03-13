@@ -1,0 +1,24 @@
+{
+    "shaktiusApp": {
+        "seminars" : {
+            "home": {
+                "title": "Seminars",
+                "createLabel": "Create a new Seminars",
+                "createOrEditLabel": "Create or edit a Seminars"
+            },
+            "created": "A new Seminars is created with identifier {{ param }}",
+            "updated": "A Seminars is updated with identifier {{ param }}",
+            "deleted": "A Seminars is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Seminars {{ id }}?"
+            },
+            "detail": {
+                "title": "Seminars"
+            },
+            "topic": "Topic",
+            "location": "Location",
+            "contact": "Contact",
+            "month": "Month"
+        }
+    }
+}

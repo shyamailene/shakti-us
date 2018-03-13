@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "key",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180217141304",
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "appconfig",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

@@ -1,0 +1,22 @@
+{
+    "shaktiusApp": {
+        "appconfig" : {
+            "home": {
+                "title": "Appconfigs",
+                "createLabel": "Create a new Appconfig",
+                "createOrEditLabel": "Create or edit a Appconfig"
+            },
+            "created": "A new Appconfig is created with identifier {{ param }}",
+            "updated": "A Appconfig is updated with identifier {{ param }}",
+            "deleted": "A Appconfig is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Appconfig {{ id }}?"
+            },
+            "detail": {
+                "title": "Appconfig"
+            },
+            "key": "Key",
+            "value": "Value"
+        }
+    }
+}

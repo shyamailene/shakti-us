@@ -1,0 +1,31 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180210094136",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "committee",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

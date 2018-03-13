@@ -1,0 +1,26 @@
+{
+    "shaktiusApp": {
+        "contactus" : {
+            "home": {
+                "title": "Contactuses",
+                "createLabel": "Create a new Contactus",
+                "createMenuLabel": "Contactus",
+                "createOrEditLabel": "Create or edit a Contactus"
+            },
+            "created": "A new Contactus is created with identifier {{ param }}",
+            "updated": "A Contactus is updated with identifier {{ param }}",
+            "deleted": "A Contactus is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Contactus {{ id }}?"
+            },
+            "detail": {
+                "title": "Contactus"
+            },
+            "email": "Email",
+            "mobile": "Mobile",
+            "relatedto": "Relatedto",
+            "content": "Content",
+            "name": "Name"
+        }
+    }
+}

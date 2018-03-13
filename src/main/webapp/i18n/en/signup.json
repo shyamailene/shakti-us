@@ -1,0 +1,34 @@
+{
+    "shaktiusApp": {
+        "signup" : {
+            "home": {
+                "title": "Signups",
+                "createLabel": "Create a new Signup",
+                "createOrEditLabel": "Create or edit a Signup"
+            },
+            "created": "A new Signup is created with identifier {{ param }}",
+            "updated": "A Signup is updated with identifier {{ param }}",
+            "deleted": "A Signup is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Signup {{ id }}?"
+            },
+            "detail": {
+                "title": "Signup"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "line1": "Line 1",
+            "line2": "Line 2",
+            "city": "City",
+            "state": "State",
+            "country": "Country",
+            "zipcode": "Zipcode",
+            "parentFName": "Parent F Name",
+            "parentLName": "Parent L Name",
+            "parentEmail": "Parent Email",
+            "parentPhone": "Parent Phone"
+        }
+    }
+}

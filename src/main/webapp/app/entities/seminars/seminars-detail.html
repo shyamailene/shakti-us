@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="shaktiusApp.seminars.detail.title">Seminars</span> {{vm.seminars.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shaktiusApp.seminars.topic">Topic</span></dt>
+        <dd>
+            <span>{{vm.seminars.topic}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.seminars.location">Location</span></dt>
+        <dd>
+            <span>{{vm.seminars.location}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.seminars.contact">Contact</span></dt>
+        <dd>
+            <span>{{vm.seminars.contact}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.seminars.month">Month</span></dt>
+        <dd>
+            <span>{{vm.seminars.month}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="seminars-detail.edit({id:vm.seminars.id})" class="btn btn-primary" ng-switch-when="vm.isAuthenticated()">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

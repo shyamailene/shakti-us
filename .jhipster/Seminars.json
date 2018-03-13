@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "topic",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "month",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180217072736",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "seminars",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180210094136_added_entity_Committee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180211065436_added_entity_Activities.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180212052152_added_entity_Locations.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217053732_added_entity_Events.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217072736_added_entity_Seminars.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217083254_added_entity_Contactus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180217141304_added_entity_Appconfig.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180218052721_added_entity_Usersignup.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180312111625_added_entity_Signup.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

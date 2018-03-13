@@ -1,0 +1,24 @@
+{
+    "shaktiusApp": {
+        "usersignup" : {
+            "home": {
+                "title": "Usersignups",
+                "createLabel": "नया Usersignup बनाएँ",
+                "createOrEditLabel": "Usersignup बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Usersignup [identifier: {{ param }}] तैयार है",
+            "updated": "एक Usersignup [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Usersignup [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Usersignup [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Usersignup"
+            },
+            "name": "Name",
+            "phonenumber": "Phonenumber",
+            "email": "Email",
+            "notes": "Notes"
+        }
+    }
+}

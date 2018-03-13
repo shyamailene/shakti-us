@@ -1,0 +1,79 @@
+<div>
+    <h2 data-translate="shaktiusApp.committee.home.title">Committees</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row" ng-switch="vm.isAuthenticated()">
+            <div ng-switch-when="true" class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="committee.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="shaktiusApp.committee.home.createLabel">
+                        Create new Committee
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right" ng-switch-when="true">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'shaktiusApp.committee.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" ng-switch="vm.isAuthenticated()">
+        <table class="jh-table table table-striped">
+            <thead>
+            <tr>
+                <th ng-switch-when="true"><span data-translate="global.field.id" ng-switch-when="true">ID</span></th>
+                <th><span data-translate="shaktiusApp.committee.name">Name</span></th>
+                <th><span data-translate="shaktiusApp.committee.title">Title</span></th>
+                <th><span data-translate="shaktiusApp.committee.email" ng-switch-when="true">Email</span></th>
+                <th><span data-translate="shaktiusApp.committee.mobile" ng-switch-when="true">Mobile</span></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="committee in vm.committees track by committee.id">
+                <td ng-switch-when="true"><a ui-sref="committee-detail({id:committee.id})" ng-switch-when="true">{{committee.id}}</a></td>
+                <td>{{committee.name}}</td>
+                <td>{{committee.title}}</td>
+                <td ng-switch-when="true">{{committee.email}}</td>
+                <td ng-switch-when="true">{{committee.mobile}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container" ng-switch-when="true">
+                        <button type="submit"
+                                ui-sref="committee-detail({id:committee.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="committee.edit({id:committee.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="committee.delete({id:committee.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                            <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

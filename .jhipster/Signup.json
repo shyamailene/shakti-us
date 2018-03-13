@@ -1,0 +1,68 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "firstName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "line1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "line2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "zipcode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentFName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentLName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "parentPhone",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180312111625",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "signup",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

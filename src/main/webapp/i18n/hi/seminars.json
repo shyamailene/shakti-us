@@ -1,0 +1,24 @@
+{
+    "shaktiusApp": {
+        "seminars" : {
+            "home": {
+                "title": "Seminars",
+                "createLabel": "नया Seminars बनाएँ",
+                "createOrEditLabel": "Seminars बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Seminars [identifier: {{ param }}] तैयार है",
+            "updated": "एक Seminars [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Seminars [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Seminars [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Seminars"
+            },
+            "topic": "Topic",
+            "location": "Location",
+            "contact": "Contact",
+            "month": "Month"
+        }
+    }
+}

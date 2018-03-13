@@ -1,0 +1,25 @@
+{
+    "shaktiusApp": {
+        "events" : {
+            "home": {
+                "title": "Events",
+                "createLabel": "नया Events बनाएँ",
+                "createOrEditLabel": "Events बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Events [identifier: {{ param }}] तैयार है",
+            "updated": "एक Events [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Events [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Events [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Events"
+            },
+            "name": "Name",
+            "type": "Type",
+            "description": "Description",
+            "location": "Location",
+            "date": "Date"
+        }
+    }
+}

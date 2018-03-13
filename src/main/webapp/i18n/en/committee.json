@@ -1,0 +1,24 @@
+{
+    "shaktiusApp": {
+        "committee" : {
+            "home": {
+                "title": "Committees",
+                "createLabel": "Create a new Committee",
+                "createOrEditLabel": "Create or edit a Committee"
+            },
+            "created": "A new Committee is created with identifier {{ param }}",
+            "updated": "A Committee is updated with identifier {{ param }}",
+            "deleted": "A Committee is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Committee {{ id }}?"
+            },
+            "detail": {
+                "title": "Committee"
+            },
+            "name": "Name",
+            "title": "Title",
+            "email": "Email",
+            "mobile": "Mobile"
+        }
+    }
+}

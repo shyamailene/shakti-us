@@ -1,0 +1,85 @@
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-click="vm.toggleNavbar()">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <ul class="nav navbar-nav navbar-right">
+                <li ui-sref-active="active">
+                    <a ui-sref="home" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon-home"></span>
+                        <span class="hidden-sm" data-translate="global.menu.home">Home</span>
+                    </a>
+                </li>
+                <li uib-dropdown class="dropdown pointer">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="account-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="hidden-sm" data-translate="global.menu.aboutus.main">
+                                About Us
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active">
+                            <a ui-sref="mission" ng-click="vm.collapseNavbar()">
+                                <span data-translate="global.menu.aboutus.mission">Mission</span>
+                            </a>
+                        </li>
+                        <li ui-sref-active="active">
+                            <a ui-sref="directors" ng-click="vm.collapseNavbar()">
+                                <span data-translate="global.menu.aboutus.board">Board of Directors</span>
+                            </a>
+                        </li>
+                        <li ng-class="{active: vm.$state.includes('account')}" ui-sref-active="active">
+                            <a ui-sref="committees" ng-click="vm.collapseNavbar()">
+                                <span data-translate="global.menu.aboutus.committee">Committees</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="activitiees" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-tags"></span>&nbsp;
+                        <span data-translate="global.menu.entities.activities">Activities</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="locationss" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-map-marker"></span>&nbsp;
+                        <span data-translate="global.menu.entities.locations">Locations</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="eventss" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-bookmark"></span>&nbsp;
+                        <span data-translate="global.menu.entities.events">Events</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="seminarss" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-book"></span>&nbsp;
+                        <span data-translate="global.menu.entities.seminars">Seminars</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="contactusmenu" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-envelope"></span>&nbsp;
+                        <span data-translate="global.menu.entities.contactus">Contact Us</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="usersignupmenu" ng-click="vm.collapseNavbar()">
+                        <span class="glyphicon glyphicon glyphicon-registration-mark"></span>&nbsp;
+                        <span data-translate="global.menu.entities.usersignup">Usersignup</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

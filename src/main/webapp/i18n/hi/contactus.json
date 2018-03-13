@@ -1,0 +1,25 @@
+{
+    "shaktiusApp": {
+        "contactus" : {
+            "home": {
+                "title": "Contactuses",
+                "createLabel": "नया Contactus बनाएँ",
+                "createOrEditLabel": "Contactus बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Contactus [identifier: {{ param }}] तैयार है",
+            "updated": "एक Contactus [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Contactus [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Contactus [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Contactus"
+            },
+            "email": "Email",
+            "mobile": "Mobile",
+            "relatedto": "Relatedto",
+            "content": "Content",
+            "name": "Name"
+        }
+    }
+}

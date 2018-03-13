@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="shaktiusApp.activities.detail.title">Activities</span> {{vm.activities.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="shaktiusApp.activities.title">Title</span></dt>
+        <dd>
+            <span>{{vm.activities.title}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.activities.description">Description</span></dt>
+        <dd>
+            <span>{{vm.activities.description}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.activities.location">Location</span></dt>
+        <dd>
+            <span>{{vm.activities.location}}</span>
+        </dd>
+        <dt><span data-translate="shaktiusApp.activities.date">Date</span></dt>
+        <dd>
+            <span>{{vm.activities.date | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="activities-detail.edit({id:vm.activities.id})" class="btn btn-primary" ng-switch-when="vm.isAuthenticated()">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
