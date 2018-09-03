@@ -1,15 +1,15 @@
 package com.vemuri.shaktius.repository;
 
-import com.vemuri.shaktius.domain.Signup;
+import com.vemuri.shaktius.domain.Payment;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;
 
 
 /**
- * Spring Data  repository for the Signup entity.
+ * Spring Data  repository for the Payment entity.
  */
 @SuppressWarnings("unused")
 @Repository
-public interface SignupRepository extends JpaRepository<Signup, Long> {
+public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
 }

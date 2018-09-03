@@ -65,6 +65,12 @@ public class Signup implements Serializable {
     @Column(name = "parent_phone")
     private String parentPhone;
 
+    @Column(name = "school")
+    private String school;
+
+    @Column(name = "grade")
+    private String grade;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -255,6 +261,32 @@ public class Signup implements Serializable {
     public void setParentPhone(String parentPhone) {
         this.parentPhone = parentPhone;
     }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public Signup school(String school) {
+        this.school = school;
+        return this;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public Signup grade(String grade) {
+        this.grade = grade;
+        return this;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -295,6 +327,8 @@ public class Signup implements Serializable {
             ", parentLName='" + getParentLName() + "'" +
             ", parentEmail='" + getParentEmail() + "'" +
             ", parentPhone='" + getParentPhone() + "'" +
+            ", school='" + getSchool() + "'" +
+            ", grade='" + getGrade() + "'" +
             "}";
     }
 }

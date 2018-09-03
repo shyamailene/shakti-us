@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "signup",
+            "otherEntityName": "signup",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "payment"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "paymentToken",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payerID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentID",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180903153102",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "payment",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

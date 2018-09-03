@@ -57,10 +57,19 @@
         {
             "fieldName": "parentPhone",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "school",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "grade",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20180312111625",
     "dto": "no",
+    "searchEngine": false,
     "service": "no",
     "entityTableName": "signup",
     "jpaMetamodelFiltering": false,

@@ -23,6 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import java.util.List;
 
+
 import static com.vemuri.shaktius.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
@@ -80,8 +81,15 @@ public class SignupResourceIntTest {
     private static final String DEFAULT_PARENT_PHONE = "AAAAAAAAAA";
     private static final String UPDATED_PARENT_PHONE = "BBBBBBBBBB";
 
+    private static final String DEFAULT_SCHOOL = "AAAAAAAAAA";
+    private static final String UPDATED_SCHOOL = "BBBBBBBBBB";
+
+    private static final String DEFAULT_GRADE = "AAAAAAAAAA";
+    private static final String UPDATED_GRADE = "BBBBBBBBBB";
+
     @Autowired
     private SignupRepository signupRepository;
+
 
     @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
@@ -131,7 +139,9 @@ public class SignupResourceIntTest {
             .parentFName(DEFAULT_PARENT_F_NAME)
             .parentLName(DEFAULT_PARENT_L_NAME)
             .parentEmail(DEFAULT_PARENT_EMAIL)
-            .parentPhone(DEFAULT_PARENT_PHONE);
+            .parentPhone(DEFAULT_PARENT_PHONE)
+            .school(DEFAULT_SCHOOL)
+            .grade(DEFAULT_GRADE);
         return signup;
     }
 
@@ -169,6 +179,8 @@ public class SignupResourceIntTest {
         assertThat(testSignup.getParentLName()).isEqualTo(DEFAULT_PARENT_L_NAME);
         assertThat(testSignup.getParentEmail()).isEqualTo(DEFAULT_PARENT_EMAIL);
         assertThat(testSignup.getParentPhone()).isEqualTo(DEFAULT_PARENT_PHONE);
+        assertThat(testSignup.getSchool()).isEqualTo(DEFAULT_SCHOOL);
+        assertThat(testSignup.getGrade()).isEqualTo(DEFAULT_GRADE);
     }
 
     @Test
@@ -214,8 +226,11 @@ public class SignupResourceIntTest {
             .andExpect(jsonPath("$.[*].parentFName").value(hasItem(DEFAULT_PARENT_F_NAME.toString())))
             .andExpect(jsonPath("$.[*].parentLName").value(hasItem(DEFAULT_PARENT_L_NAME.toString())))
             .andExpect(jsonPath("$.[*].parentEmail").value(hasItem(DEFAULT_PARENT_EMAIL.toString())))
-            .andExpect(jsonPath("$.[*].parentPhone").value(hasItem(DEFAULT_PARENT_PHONE.toString())));
+            .andExpect(jsonPath("$.[*].parentPhone").value(hasItem(DEFAULT_PARENT_PHONE.toString())))
+            .andExpect(jsonPath("$.[*].school").value(hasItem(DEFAULT_SCHOOL.toString())))
+            .andExpect(jsonPath("$.[*].grade").value(hasItem(DEFAULT_GRADE.toString())));
     }
+    
 
     @Test
     @Transactional
@@ -241,9 +256,10 @@ public class SignupResourceIntTest {
             .andExpect(jsonPath("$.parentFName").value(DEFAULT_PARENT_F_NAME.toString()))
             .andExpect(jsonPath("$.parentLName").value(DEFAULT_PARENT_L_NAME.toString()))
             .andExpect(jsonPath("$.parentEmail").value(DEFAULT_PARENT_EMAIL.toString()))
-            .andExpect(jsonPath("$.parentPhone").value(DEFAULT_PARENT_PHONE.toString()));
+            .andExpect(jsonPath("$.parentPhone").value(DEFAULT_PARENT_PHONE.toString()))
+            .andExpect(jsonPath("$.school").value(DEFAULT_SCHOOL.toString()))
+            .andExpect(jsonPath("$.grade").value(DEFAULT_GRADE.toString()));
     }
-
     @Test
     @Transactional
     public void getNonExistingSignup() throws Exception {
@@ -257,6 +273,7 @@ public class SignupResourceIntTest {
     public void updateSignup() throws Exception {
         // Initialize the database
         signupRepository.saveAndFlush(signup);
+
         int databaseSizeBeforeUpdate = signupRepository.findAll().size();
 
         // Update the signup
@@ -277,7 +294,9 @@ public class SignupResourceIntTest {
             .parentFName(UPDATED_PARENT_F_NAME)
             .parentLName(UPDATED_PARENT_L_NAME)
             .parentEmail(UPDATED_PARENT_EMAIL)
-            .parentPhone(UPDATED_PARENT_PHONE);
+            .parentPhone(UPDATED_PARENT_PHONE)
+            .school(UPDATED_SCHOOL)
+            .grade(UPDATED_GRADE);
 
         restSignupMockMvc.perform(put("/api/signups")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -302,6 +321,8 @@ public class SignupResourceIntTest {
         assertThat(testSignup.getParentLName()).isEqualTo(UPDATED_PARENT_L_NAME);
         assertThat(testSignup.getParentEmail()).isEqualTo(UPDATED_PARENT_EMAIL);
         assertThat(testSignup.getParentPhone()).isEqualTo(UPDATED_PARENT_PHONE);
+        assertThat(testSignup.getSchool()).isEqualTo(UPDATED_SCHOOL);
+        assertThat(testSignup.getGrade()).isEqualTo(UPDATED_GRADE);
     }
 
     @Test
@@ -311,15 +332,15 @@ public class SignupResourceIntTest {
 
         // Create the Signup
 
-        // If the entity doesn't have an ID, it will be created instead of just being updated
+        // If the entity doesn't have an ID, it will throw BadRequestAlertException 
         restSignupMockMvc.perform(put("/api/signups")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
             .content(TestUtil.convertObjectToJsonBytes(signup)))
-            .andExpect(status().isCreated());
+            .andExpect(status().isBadRequest());
 
         // Validate the Signup in the database
         List<Signup> signupList = signupRepository.findAll();
-        assertThat(signupList).hasSize(databaseSizeBeforeUpdate + 1);
+        assertThat(signupList).hasSize(databaseSizeBeforeUpdate);
     }
 
     @Test
@@ -327,6 +348,7 @@ public class SignupResourceIntTest {
     public void deleteSignup() throws Exception {
         // Initialize the database
         signupRepository.saveAndFlush(signup);
+
         int databaseSizeBeforeDelete = signupRepository.findAll().size();
 
         // Get the signup

@@ -1,3 +1,4 @@
+
 {
     "shaktiusApp": {
         "signup" : {
@@ -28,7 +29,9 @@
             "parentFName": "Parent F Name",
             "parentLName": "Parent L Name",
             "parentEmail": "Parent Email",
-            "parentPhone": "Parent Phone"
+            "parentPhone": "Parent Phone",
+            "school": "School",
+            "grade": "Grade"
         }
     }
 }
