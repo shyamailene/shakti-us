@@ -1,0 +1,29 @@
+
+{
+    "shaktiusApp": {
+        "rangoli" : {
+            "home": {
+                "title": "Rangolis",
+                "createLabel": "Create a new Rangoli",
+                "createOrEditLabel": "Create or edit a Rangoli"
+            },
+            "created": "A new Rangoli is created with identifier {{ param }}",
+            "updated": "A Rangoli is updated with identifier {{ param }}",
+            "deleted": "A Rangoli is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Rangoli {{ id }}?"
+            },
+            "detail": {
+                "title": "Rangoli"
+            },
+            "email": "Email",
+            "name": "Name",
+            "age": "Age",
+            "email2": "Email 2",
+            "address": "Address",
+            "phone": "Phone",
+            "interested": "Interested",
+            "volunteer": "Volunteer"
+        }
+    }
+}

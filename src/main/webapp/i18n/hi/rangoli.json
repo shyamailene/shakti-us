@@ -1,0 +1,29 @@
+
+{
+    "shaktiusApp": {
+        "rangoli" : {
+            "home": {
+                "title": "Rangolis",
+                "createLabel": "नया Rangoli बनाएँ",
+                "createOrEditLabel": "Rangoli बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Rangoli [identifier: {{ param }}] तैयार है",
+            "updated": "एक Rangoli [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Rangoli [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Rangoli [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Rangoli"
+            },
+            "email": "Email",
+            "name": "Name",
+            "age": "Age",
+            "email2": "Email 2",
+            "address": "Address",
+            "phone": "Phone",
+            "interested": "Interested",
+            "volunteer": "Volunteer"
+        }
+    }
+}
