@@ -22,6 +22,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = {"http://www.shakti-us.org","https://www.shakti-us.org"})
 public class FundraiserResource {
 
     private final Logger log = LoggerFactory.getLogger(FundraiserResource.class);
