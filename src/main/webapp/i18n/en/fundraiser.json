@@ -1,0 +1,27 @@
+
+{
+    "shaktiusApp": {
+        "fundraiser" : {
+            "home": {
+                "title": "Fundraisers",
+                "createLabel": "Create a new Fundraiser",
+                "createOrEditLabel": "Create or edit a Fundraiser"
+            },
+            "created": "A new Fundraiser is created with identifier {{ param }}",
+            "updated": "A Fundraiser is updated with identifier {{ param }}",
+            "deleted": "A Fundraiser is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Fundraiser {{ id }}?"
+            },
+            "detail": {
+                "title": "Fundraiser"
+            },
+            "email": "Email",
+            "name": "Name",
+            "email2": "Email 2",
+            "address": "Address",
+            "phonenumber": "Phonenumber",
+            "volunteer": "Volunteer"
+        }
+    }
+}
